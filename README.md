@@ -204,7 +204,7 @@ logado redireciona automaticamente pra `/login` (ver seção de Rotas acima).
 
 ## 🌐 Deploy
 
-**Link do Deploy (Vercel):** https://sprint3-webdev-lwgn-gold.vercel.app _(atualizar se for gerado um novo deploy pra Sprint 4)_
+**Link do Deploy (Vercel):** https://sprint4-webdev.vercel.app/login
 **Link do Repositório GitHub:** https://github.com/gjrzz/sprint4-webdev
 
 ---
