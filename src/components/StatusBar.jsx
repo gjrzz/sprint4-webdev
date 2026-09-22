@@ -5,7 +5,7 @@ export default function StatusBar() {
   const hora = useRelogio();
 
   return (
-    <div className="status-bar" aria-hidden="true">
+    <div className="status-bar pt-3.5 px-6" aria-hidden="true">
       <span className="status-time">{hora}</span>
       <div className="status-notch"></div>
       <div className="status-icons">
