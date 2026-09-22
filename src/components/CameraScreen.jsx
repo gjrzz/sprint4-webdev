@@ -2,8 +2,9 @@ import { useState } from 'react';
 import StatusBar from './StatusBar';
 import BottomNav from './BottomNav';
 import BottomSheet from './BottomSheet';
-import { resolverEquacao, formatarEquacao } from '../utils/math';
+import { formatarEquacao } from '../utils/math';
 import { formatarNome } from '../utils/validation';
+import { useResolucaoEquacao } from '../hooks/useResolucaoEquacao';
 
 // Equação de demonstração (mesma do protótipo original)
 const EQUACAO_DEMO = { a: 1, b: -5, c: 6 };
@@ -24,7 +25,7 @@ export default function CameraScreen({ nome, onSalvarNome }) {
   const [sheetAberto, setSheetAberto] = useState(false);
 
   const modoMath = modo === 'math';
-  const resolucao = resolverEquacao(EQUACAO_DEMO.a, EQUACAO_DEMO.b, EQUACAO_DEMO.c);
+  const { resolucao, carregando } = useResolucaoEquacao(EQUACAO_DEMO);
   const equacaoTexto = formatarEquacao(EQUACAO_DEMO.a, EQUACAO_DEMO.b, EQUACAO_DEMO.c);
 
   function abrirSheet() {
@@ -130,6 +131,7 @@ export default function CameraScreen({ nome, onSalvarNome }) {
         <BottomSheet
           aberto={sheetAberto}
           resolucao={resolucao}
+          carregando={carregando}
           onFechar={() => setSheetAberto(false)}
         />
 
