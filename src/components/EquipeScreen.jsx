@@ -10,22 +10,22 @@ const INTEGRANTES = [
 ];
 
 /** Tela "Equipe" (componente pai). Portada de equipe.html. */
-export default function EquipeScreen({ telaAtual, onTrocarTela }) {
+export default function EquipeScreen() {
   return (
     <div className="equipe-page">
       <div className="phone-frame" role="main">
         <StatusBar />
 
         <div className="page-scroll-content">
-          <section className="equipe-hero">
+          <section className="equipe-hero pt-8 px-6 pb-5">
             <h1 className="equipe-title">Grupo <span className="brand-accent">F.D.P.</span></h1>
-            <p className="equipe-subtitle">FIAP · Disciplina Web Development · Sprint 3</p>
+            <p className="equipe-subtitle">FIAP · Disciplina Web Development · Sprint 4</p>
             <div className="fiap-badge">
               <span>🎓</span> FIAP – Faculdade de Informática e Administração Paulista
             </div>
           </section>
 
-          <section className="equipe-grid" aria-label="Membros da equipe">
+          <section className="grid grid-cols-1 gap-2.5 px-6 py-2" aria-label="Membros da equipe">
             {INTEGRANTES.map((pessoa) => (
               <MemberCard key={pessoa.rm} nome={pessoa.nome} rm={pessoa.rm} cor={pessoa.cor} />
             ))}
@@ -38,7 +38,7 @@ export default function EquipeScreen({ telaAtual, onTrocarTela }) {
             </div>
             <div className="project-info-row">
               <span className="info-label">Sprint</span>
-              <span className="info-value">Sprint 3 — React</span>
+              <span className="info-value">Sprint 4 — React</span>
             </div>
             <div className="project-info-row">
               <span className="info-label">Stack</span>
@@ -49,7 +49,7 @@ export default function EquipeScreen({ telaAtual, onTrocarTela }) {
           <div className="sobre-spacer"></div>
         </div>
 
-        <BottomNav telaAtual={telaAtual} onTrocarTela={onTrocarTela} />
+        <BottomNav />
       </div>
     </div>
   );

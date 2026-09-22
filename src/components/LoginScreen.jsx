@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { formatarNome, emailValido } from '../utils/validation';
 
 /**
  * Tela de login. Portada de login.html + fazerLogin()/iniciarToggleSenha()
- * do script.js original. Em vez de window.location.href, chama onEntrar().
+ * do script.js original. Em vez de window.location.href, salva o nome via
+ * onEntrar() e navega pra /camera com react-router-dom.
  */
 export default function LoginScreen({ onEntrar }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [usuario, setUsuario] = useState('');
@@ -43,6 +46,7 @@ export default function LoginScreen({ onEntrar }) {
 
     const nome = formatarNome(usuario) || formatarNome(email.split('@')[0]);
     onEntrar(nome);
+    navigate('/camera');
   }
 
   return (
@@ -59,8 +63,8 @@ export default function LoginScreen({ onEntrar }) {
         <span className="math-symbol" style={{ '--delay': '3.5s', '--x': '92%', '--size': '1.4rem' }}>α</span>
       </div>
 
-      <main className="login-container">
-        <div className="login-card glass-card">
+      <main className="relative z-[2] w-full max-w-[420px] px-4 py-6 sm:px-6 sm:py-8">
+        <div className="glass-card px-5 py-7 sm:px-8 sm:py-9">
           <div className="login-brand">
             <div className="brand-icon">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">

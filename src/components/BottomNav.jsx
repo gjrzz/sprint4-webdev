@@ -1,8 +1,14 @@
+import { useLocation, useNavigate } from 'react-router-dom';
+
 /**
  * Navegação inferior. Antes eram <a href="pagina.html">,
- * agora troca a tela via estado (setTela), sem recarregar a página.
+ * depois viravam troca de tela via estado; agora navega de
+ * verdade pela URL com react-router-dom.
  */
-export default function BottomNav({ telaAtual, onTrocarTela }) {
+export default function BottomNav() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const itens = [
     {
       id: 'camera',
@@ -40,19 +46,24 @@ export default function BottomNav({ telaAtual, onTrocarTela }) {
   ];
 
   return (
-    <nav className="bottom-nav" aria-label="Navegação principal">
-      {itens.map((item) => (
-        <button
-          key={item.id}
-          type="button"
-          className={`nav-item ${telaAtual === item.id ? 'active' : ''}`}
-          aria-current={telaAtual === item.id ? 'page' : undefined}
-          onClick={() => onTrocarTela(item.id)}
-        >
-          {item.icone}
-          <span>{item.label}</span>
-        </button>
-      ))}
+    <nav className="bottom-nav pt-2 pb-5" aria-label="Navegação principal">
+      {itens.map((item) => {
+        const path = `/${item.id}`;
+        const ativo = location.pathname === path;
+
+        return (
+          <button
+            key={item.id}
+            type="button"
+            className={`nav-item ${ativo ? 'active' : ''}`}
+            aria-current={ativo ? 'page' : undefined}
+            onClick={() => navigate(path)}
+          >
+            {item.icone}
+            <span>{item.label}</span>
+          </button>
+        );
+      })}
     </nav>
   );
 }

@@ -6,7 +6,7 @@ import { formatarEquacao } from '../utils/math';
  * Antes o conteúdo era HTML fixo; agora os números vêm
  * de verdade do resultado calculado em utils/math.js.
  */
-export default function BottomSheet({ aberto, resolucao, onFechar }) {
+export default function BottomSheet({ aberto, resolucao, carregando, onFechar }) {
   const botaoFecharRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +23,30 @@ export default function BottomSheet({ aberto, resolucao, onFechar }) {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [aberto, onFechar]);
 
-  if (!resolucao) return null;
+  if (!resolucao) {
+    if (!carregando) return null;
+
+    return (
+      <div
+        className={`bottom-sheet ${aberto ? 'show' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Calculando resolução"
+        aria-hidden={!aberto}
+        aria-busy="true"
+      >
+        <div className="bottom-sheet-inner">
+          <div className="sheet-handle" aria-hidden="true"></div>
+          <div className="flex flex-col items-center justify-center gap-4 px-6 py-14 text-center">
+            <div className="h-10 w-10 animate-spin rounded-full border-4 border-white/15 border-t-[#007AFF]" aria-hidden="true"></div>
+            <p className="text-sm text-white/60">Calculando a resolução…</p>
+          </div>
+        </div>
+
+        <div className="sheet-overlay" onClick={onFechar}></div>
+      </div>
+    );
+  }
 
   const { a, b, c, delta, raizes } = resolucao;
   const equacaoTexto = formatarEquacao(a, b, c);

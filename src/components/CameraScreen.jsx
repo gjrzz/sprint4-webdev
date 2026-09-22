@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import StatusBar from './StatusBar';
 import BottomNav from './BottomNav';
 import BottomSheet from './BottomSheet';
-import { resolverEquacao, formatarEquacao } from '../utils/math';
+import { formatarEquacao } from '../utils/math';
 import { formatarNome } from '../utils/validation';
+import { useResolucaoEquacao } from '../hooks/useResolucaoEquacao';
 
 // Equação de demonstração (mesma do protótipo original)
 const EQUACAO_DEMO = { a: 1, b: -5, c: 6 };
@@ -19,12 +20,18 @@ const NOMES_MODO = {
  * Tela principal (câmera). Portada de index.html +
  * iniciarCamera()/iniciarBottomSheet()/iniciarConfiguracoes()/iniciarBotaoCopiar().
  */
-export default function CameraScreen({ nome, onSalvarNome, telaAtual, onTrocarTela }) {
+export default function CameraScreen({ nome, onSalvarNome }) {
   const [modo, setModo] = useState('photo');
   const [sheetAberto, setSheetAberto] = useState(false);
+  const [mostrarSaudacao, setMostrarSaudacao] = useState(true);
+
+  useEffect(() => {
+    const id = setTimeout(() => setMostrarSaudacao(false), 5000);
+    return () => clearTimeout(id);
+  }, []);
 
   const modoMath = modo === 'math';
-  const resolucao = resolverEquacao(EQUACAO_DEMO.a, EQUACAO_DEMO.b, EQUACAO_DEMO.c);
+  const { resolucao, carregando } = useResolucaoEquacao(EQUACAO_DEMO);
   const equacaoTexto = formatarEquacao(EQUACAO_DEMO.a, EQUACAO_DEMO.b, EQUACAO_DEMO.c);
 
   function abrirSheet() {
@@ -85,7 +92,7 @@ export default function CameraScreen({ nome, onSalvarNome, telaAtual, onTrocarTe
             </button>
           </header>
 
-          <div className="user-greeting glass-card" aria-live="polite">
+          <div className={`user-greeting glass-card ${mostrarSaudacao ? '' : 'hide'}`} aria-live="polite">
             <span>{saudacao}</span>
           </div>
         </div>
@@ -130,10 +137,11 @@ export default function CameraScreen({ nome, onSalvarNome, telaAtual, onTrocarTe
         <BottomSheet
           aberto={sheetAberto}
           resolucao={resolucao}
+          carregando={carregando}
           onFechar={() => setSheetAberto(false)}
         />
 
-        <BottomNav telaAtual={telaAtual} onTrocarTela={onTrocarTela} />
+        <BottomNav />
       </div>
     </div>
   );
