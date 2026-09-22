@@ -10,7 +10,7 @@ const INTEGRANTES = [
 ];
 
 /** Tela "Equipe" (componente pai). Portada de equipe.html. */
-export default function EquipeScreen({ telaAtual, onTrocarTela }) {
+export default function EquipeScreen() {
   return (
     <div className="equipe-page">
       <div className="phone-frame" role="main">
@@ -49,7 +49,7 @@ export default function EquipeScreen({ telaAtual, onTrocarTela }) {
           <div className="sobre-spacer"></div>
         </div>
 
-        <BottomNav telaAtual={telaAtual} onTrocarTela={onTrocarTela} />
+        <BottomNav />
       </div>
     </div>
   );

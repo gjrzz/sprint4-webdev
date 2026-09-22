@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { formatarNome, emailValido } from '../utils/validation';
 
 /**
  * Tela de login. Portada de login.html + fazerLogin()/iniciarToggleSenha()
- * do script.js original. Em vez de window.location.href, chama onEntrar().
+ * do script.js original. Em vez de window.location.href, salva o nome via
+ * onEntrar() e navega pra /camera com react-router-dom.
  */
 export default function LoginScreen({ onEntrar }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [usuario, setUsuario] = useState('');
@@ -43,6 +46,7 @@ export default function LoginScreen({ onEntrar }) {
 
     const nome = formatarNome(usuario) || formatarNome(email.split('@')[0]);
     onEntrar(nome);
+    navigate('/camera');
   }
 
   return (

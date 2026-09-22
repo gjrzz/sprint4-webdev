@@ -3,7 +3,7 @@ import BottomNav from './BottomNav';
 import Slideshow from './Slideshow';
 
 /** Tela "Sobre". Portada de sobre.html. */
-export default function SobreScreen({ telaAtual, onTrocarTela }) {
+export default function SobreScreen() {
   return (
     <div className="sobre-page">
       <div className="phone-frame" role="main">
@@ -56,7 +56,7 @@ export default function SobreScreen({ telaAtual, onTrocarTela }) {
           <div className="sobre-spacer"></div>
         </div>
 
-        <BottomNav telaAtual={telaAtual} onTrocarTela={onTrocarTela} />
+        <BottomNav />
       </div>
     </div>
   );

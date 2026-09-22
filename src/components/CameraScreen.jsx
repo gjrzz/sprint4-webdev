@@ -19,7 +19,7 @@ const NOMES_MODO = {
  * Tela principal (câmera). Portada de index.html +
  * iniciarCamera()/iniciarBottomSheet()/iniciarConfiguracoes()/iniciarBotaoCopiar().
  */
-export default function CameraScreen({ nome, onSalvarNome, telaAtual, onTrocarTela }) {
+export default function CameraScreen({ nome, onSalvarNome }) {
   const [modo, setModo] = useState('photo');
   const [sheetAberto, setSheetAberto] = useState(false);
 
@@ -133,7 +133,7 @@ export default function CameraScreen({ nome, onSalvarNome, telaAtual, onTrocarTe
           onFechar={() => setSheetAberto(false)}
         />
 
-        <BottomNav telaAtual={telaAtual} onTrocarTela={onTrocarTela} />
+        <BottomNav />
       </div>
     </div>
   );
