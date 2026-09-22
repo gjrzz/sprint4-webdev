@@ -121,21 +121,16 @@ lógica e renderização.
 
 ## 🤖 Onde e como a IA foi utilizada
 
-A IA (Claude Code, da Anthropic) foi utilizada para **assistir no
-desenvolvimento** em todas as sprints: ajudou a planejar a divisão de
-componentes React a partir do protótipo HTML da Sprint 2, gerou o código
-inicial dos componentes, portou a lógica que antes estava em `script.js`
-(Vanilla JS) para hooks e funções puras, implementou o cálculo real da
-equação do 2º grau com `Math` em `src/utils/math.js`, e nesta sprint
-implementou as rotas com `react-router-dom`, a integração com a Newton API
-(incluindo testar endpoints reais pra escolher o mais confiável) e a adaptação
-da interface para Tailwind CSS. Todo o código gerado foi revisado pela equipe
+A IA (Claude Code, da Anthropic) foi utilizada para planejar a divisão de
+componentes React a partir do protótipo HTML da Sprint 2 e nesta sprint
+implementou a integração com a Newton API. Todo o código gerado foi revisado pela equipe
 antes da entrega.
 
 **Importante — duas coisas que não são "IA" aqui, apesar do nome:**
 - O badge **"Gemini"** mostrado na interface do app (Bottom Sheet) é parte da
   **narrativa do produto simulado** — o app finge ser um recurso de câmera
-  com IA embutida — e não é uma integração real com uma API de IA.
+  com IA embutida — e não é uma integração real com uma API de IA. A integração
+  real custaria dinheiro. é possivel, só não faz sentido no momento.
 - A **Newton API**, usada de verdade para resolver a equação (seção acima),
   também **não é uma IA** — é uma API de resolução simbólica de matemática
   (álgebra/cálculo), sem nenhum modelo de linguagem envolvido.
