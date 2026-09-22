@@ -240,17 +240,6 @@ body {
   to { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
 }
 
-.login-container {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 420px;
-  padding: 24px;
-}
-
-.login-card {
-  padding: 36px 32px;
-}
 
 /* Brand */
 .login-brand {

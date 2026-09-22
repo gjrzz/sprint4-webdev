@@ -63,8 +63,8 @@ export default function LoginScreen({ onEntrar }) {
         <span className="math-symbol" style={{ '--delay': '3.5s', '--x': '92%', '--size': '1.4rem' }}>α</span>
       </div>
 
-      <main className="login-container">
-        <div className="login-card glass-card">
+      <main className="relative z-[2] w-full max-w-[420px] px-4 py-6 sm:px-6 sm:py-8">
+        <div className="glass-card px-5 py-7 sm:px-8 sm:py-9">
           <div className="login-brand">
             <div className="brand-icon">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
