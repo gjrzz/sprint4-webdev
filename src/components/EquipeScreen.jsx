@@ -19,7 +19,7 @@ export default function EquipeScreen() {
         <div className="page-scroll-content">
           <section className="equipe-hero pt-8 px-6 pb-5">
             <h1 className="equipe-title">Grupo <span className="brand-accent">F.D.P.</span></h1>
-            <p className="equipe-subtitle">FIAP · Disciplina Web Development · Sprint 3</p>
+            <p className="equipe-subtitle">FIAP · Disciplina Web Development · Sprint 4</p>
             <div className="fiap-badge">
               <span>🎓</span> FIAP – Faculdade de Informática e Administração Paulista
             </div>
@@ -38,7 +38,7 @@ export default function EquipeScreen() {
             </div>
             <div className="project-info-row">
               <span className="info-label">Sprint</span>
-              <span className="info-value">Sprint 3 — React</span>
+              <span className="info-value">Sprint 4 — React</span>
             </div>
             <div className="project-info-row">
               <span className="info-label">Stack</span>
