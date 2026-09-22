@@ -17,7 +17,7 @@ export default function EquipeScreen() {
         <StatusBar />
 
         <div className="page-scroll-content">
-          <section className="equipe-hero">
+          <section className="equipe-hero pt-8 px-6 pb-5">
             <h1 className="equipe-title">Grupo <span className="brand-accent">F.D.P.</span></h1>
             <p className="equipe-subtitle">FIAP · Disciplina Web Development · Sprint 3</p>
             <div className="fiap-badge">
@@ -25,7 +25,7 @@ export default function EquipeScreen() {
             </div>
           </section>
 
-          <section className="equipe-grid" aria-label="Membros da equipe">
+          <section className="grid grid-cols-1 gap-2.5 px-6 py-2" aria-label="Membros da equipe">
             {INTEGRANTES.map((pessoa) => (
               <MemberCard key={pessoa.rm} nome={pessoa.nome} rm={pessoa.rm} cor={pessoa.cor} />
             ))}
