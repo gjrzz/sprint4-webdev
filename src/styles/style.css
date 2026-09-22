@@ -68,10 +68,11 @@ body {
 
 /* ── Phone Frame ─────────────────────────────────────────── */
 .phone-frame {
-  width: min(var(--phone-w), 100%);
+  width: min(var(--phone-w), calc(100% - 40px));
   height: var(--phone-h);
   background: var(--bg-2);
   border-radius: 54px;
+  border: 10px solid #1c1c1e;
   box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(255,255,255,.08);
   overflow: hidden;
   position: relative;

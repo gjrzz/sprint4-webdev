@@ -46,7 +46,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="bottom-nav pt-2 pb-5" aria-label="Navegação principal">
+    <nav className="bottom-nav pt-2 px-4 pb-5" aria-label="Navegação principal">
       {itens.map((item) => {
         const path = `/${item.id}`;
         const ativo = location.pathname === path;
