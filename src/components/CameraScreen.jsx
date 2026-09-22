@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import StatusBar from './StatusBar';
 import BottomNav from './BottomNav';
 import BottomSheet from './BottomSheet';
@@ -23,6 +23,12 @@ const NOMES_MODO = {
 export default function CameraScreen({ nome, onSalvarNome }) {
   const [modo, setModo] = useState('photo');
   const [sheetAberto, setSheetAberto] = useState(false);
+  const [mostrarSaudacao, setMostrarSaudacao] = useState(true);
+
+  useEffect(() => {
+    const id = setTimeout(() => setMostrarSaudacao(false), 5000);
+    return () => clearTimeout(id);
+  }, []);
 
   const modoMath = modo === 'math';
   const { resolucao, carregando } = useResolucaoEquacao(EQUACAO_DEMO);
@@ -86,7 +92,7 @@ export default function CameraScreen({ nome, onSalvarNome }) {
             </button>
           </header>
 
-          <div className="user-greeting glass-card" aria-live="polite">
+          <div className={`user-greeting glass-card ${mostrarSaudacao ? '' : 'hide'}`} aria-live="polite">
             <span>{saudacao}</span>
           </div>
         </div>

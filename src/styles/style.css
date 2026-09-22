@@ -459,6 +459,13 @@ body {
   font-size: .8rem;
   color: var(--text-2);
   border-radius: 50px;
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+.user-greeting.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Camera controls */
