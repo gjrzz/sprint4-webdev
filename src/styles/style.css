@@ -68,7 +68,7 @@ body {
 
 /* ── Phone Frame ─────────────────────────────────────────── */
 .phone-frame {
-  width: var(--phone-w);
+  width: min(var(--phone-w), 100%);
   height: var(--phone-h);
   background: var(--bg-2);
   border-radius: 54px;
@@ -354,7 +354,9 @@ body {
    SIMULATOR / INDEX PAGE
    ============================================================ */
 .simulator-page {
-  background: #111;
+  background: radial-gradient(ellipse at 20% 10%, rgba(0,122,255,.14) 0%, transparent 55%),
+              radial-gradient(ellipse at 85% 90%, rgba(48,209,88,.08) 0%, transparent 55%),
+              #0a0a0a;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -684,7 +686,15 @@ body {
 /* ============================================================
    SOBRE PAGE
    ============================================================ */
-.sobre-page { background: var(--bg); }
+.sobre-page {
+  background: radial-gradient(ellipse at 20% 10%, rgba(0,122,255,.14) 0%, transparent 55%),
+              radial-gradient(ellipse at 85% 90%, rgba(48,209,88,.08) 0%, transparent 55%),
+              #0a0a0a;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+}
 
 .page-scroll-content {
   flex: 1;
@@ -695,7 +705,6 @@ body {
 /* Hero */
 .sobre-hero {
   text-align: center;
-  padding: 32px 24px 20px;
   background: radial-gradient(ellipse at 50% 0%, rgba(0,122,255,.2) 0%, transparent 70%);
 }
 
@@ -709,7 +718,6 @@ body {
 .sobre-subtitle { color: var(--text-2); font-size: .9rem; margin-top: 6px; }
 
 /* Sections */
-.sobre-section { padding: 20px 24px; }
 .section-heading {
   font-size: 1.1rem;
   font-weight: 700;

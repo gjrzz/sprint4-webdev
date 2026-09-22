@@ -10,7 +10,7 @@ export default function SobreScreen() {
         <StatusBar />
 
         <div className="page-scroll-content">
-          <section className="sobre-hero">
+          <section className="sobre-hero pt-8 px-6 pb-5">
             <div className="sobre-hero-icon">
               <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
                 <rect width="56" height="56" rx="16" fill="#007AFF" />
@@ -21,7 +21,7 @@ export default function SobreScreen() {
             <p className="sobre-subtitle">Resolução inteligente de equações pela câmera do seu celular</p>
           </section>
 
-          <section className="sobre-section" aria-labelledby="about-heading">
+          <section className="sobre-section px-6 py-5" aria-labelledby="about-heading">
             <h2 className="section-heading" id="about-heading">O que é?</h2>
             <p className="section-text">
               O <strong>JOVI Math</strong> é uma funcionalidade nativa de câmera impulsionada pela IA <strong>Gemini</strong>.
@@ -30,12 +30,12 @@ export default function SobreScreen() {
             </p>
           </section>
 
-          <section className="sobre-section slideshow-section" aria-labelledby="howto-heading">
+          <section className="sobre-section slideshow-section px-6 py-5" aria-labelledby="howto-heading">
             <h2 className="section-heading" id="howto-heading">Como funciona</h2>
             <Slideshow />
           </section>
 
-          <section className="sobre-section" aria-labelledby="tech-heading">
+          <section className="sobre-section px-6 py-5" aria-labelledby="tech-heading">
             <h2 className="section-heading" id="tech-heading">Tecnologias</h2>
             <ul className="tech-list" role="list">
               <li className="tech-item">
